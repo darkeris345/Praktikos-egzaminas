@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const userRouter = require("./routes/userRoutes");
+const procedureRouter = require("./routes/procedureRoutes");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use((req, res, next) => {
     next();
   });
 
+  app.use("/api/v1/procedures", procedureRouter);
   app.use("/api/v1/users", userRouter);
 
   module.exports = app;

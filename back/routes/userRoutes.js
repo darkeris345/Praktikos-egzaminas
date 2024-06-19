@@ -11,6 +11,7 @@ const {getAllUsers, getUser, createUser, updateUser, deleteUser} = userControler
 const router = express.Router();
 router.route("/").get(getAllUsers);
 
+router.route("/:id").get(getUser).patch(updateUser).delete(deleteUser);
 
 router.route("/signup").post(signup);
 router.route("/login").post(login);

@@ -6,18 +6,15 @@ const procedureSchema = new mongoose.Schema({
         required: [true, "Please enter procedure name"],
         trim: true,
     },
-    description: {
+    category: {
         type: String,
-        required: [true, "Please enter procedure description"],
+        required: [true, "Please enter procedure category"],
         trim: true,
     },
-    price: {
-        type: Number,
-        required: [true, "Please enter procedure price"],
-    },
     duration: {
-        type: Number,
+        type: String,
         required: [true, "Please enter procedure duration"],
+        trim: true,
     },
     image: {
         type: String,

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcrypt");
+const Procedure = require("./procedureModel");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -37,6 +38,12 @@ const userSchema = new mongoose.Schema({
     message: "Role must be one of: user, admin",
     default: "user",
   },
+  procedures: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Procedure",
+    },
+  ],
   
 });
 

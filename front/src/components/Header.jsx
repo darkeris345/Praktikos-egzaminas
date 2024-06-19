@@ -23,13 +23,15 @@ export default function ButtonAppBar() {
     setLoggedIn(!!user);
   }, []);
 
+  
   const handleLogout = () => {
     logout();
     setLoggedIn(false);
     navigate("/");
   };
-
+  
   const users = getLogedInUser();
+  
 
   const handleMenuClick = (event) => {
     setMenuAnchorEl(event.currentTarget);
@@ -67,7 +69,7 @@ export default function ButtonAppBar() {
             color="inherit"
             endIcon={<ArrowDropDownIcon />}
           >
-            Dashboard 
+            Menu 
           </Button>)}
           </Typography>
           {loggedIn && (         
@@ -78,18 +80,21 @@ export default function ButtonAppBar() {
             open={Boolean(menuAnchorEl)}
             onClose={handleMenuClose}
           >
-             <MenuItem component={Link} to="/groups">Groups</MenuItem>
-            <MenuItem component={Link} to="/solo">Solo</MenuItem>
-            <MenuItem component={Link} to="/my-tours">My tours</MenuItem>
-          </Menu> )}
+            <MenuItem component={Link} to="/procedures">Procedures</MenuItem>
+          </Menu>)}
           </Typography>
           <Typography variant="h6" component="div" sx={{ ml: 2 }}>
-            {users?.data.role}
           </Typography>
           {loggedIn ? (
+            <>
+            <Typography variant="h6" component="div" sx={{ mr: 2 }}>
+              Welcome {users.data.name}
+            </Typography>
             <Button color="inherit" onClick={handleLogout}>
               Logout
             </Button>
+            </>
+        
           ) : (
             <Button color="inherit">
               <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
