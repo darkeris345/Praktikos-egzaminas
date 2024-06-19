@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 
 export default function ButtonAppBar() {
   const [loggedIn, setLoggedIn] = useState(false);
+
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
   const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ export default function ButtonAppBar() {
     setLoggedIn(!!user);
   }, []);
 
+    
   
   const handleLogout = () => {
     logout();
@@ -31,6 +33,7 @@ export default function ButtonAppBar() {
   };
   
   const users = getLogedInUser();
+  
   
 
   const handleMenuClick = (event) => {
@@ -81,14 +84,20 @@ export default function ButtonAppBar() {
             onClose={handleMenuClose}
           >
             <MenuItem component={Link} to="/procedures">Procedures</MenuItem>
+            {users.data.role === "admin" && <MenuItem component={Link} to="/admin">Admin</MenuItem>}
           </Menu>)}
           </Typography>
           <Typography variant="h6" component="div" sx={{ ml: 2 }}>
           </Typography>
+          
+          
           {loggedIn ? (
             <>
             <Typography variant="h6" component="div" sx={{ mr: 2 }}>
               Welcome {users.data.name}
+            </Typography>
+            <Typography variant="h20" component="div" sx={{ mr: 2 }}>
+              ({users.data.role})
             </Typography>
             <Button color="inherit" onClick={handleLogout}>
               Logout
