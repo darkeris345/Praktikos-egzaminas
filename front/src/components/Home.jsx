@@ -12,7 +12,7 @@ function Home() {
             <Button variant="contained" color="primary" onClick={() => window.location.href = '/register'} sx={{marginRight: '40px'}}>
                 Register
             </Button>
-            <Button variant="contained" color="secondary" onClick={() => window.location.href = '/procedures'}>
+            <Button variant="contained" color="secondary" onClick={() => window.location.href = '/pro'}>
                 Search Procedures
             </Button>
 

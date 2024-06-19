@@ -83,7 +83,7 @@ export default function ButtonAppBar() {
             open={Boolean(menuAnchorEl)}
             onClose={handleMenuClose}
           >
-            <MenuItem component={Link} to="/procedures">Procedures</MenuItem>
+            <MenuItem component={Link} to="/pro">Procedures</MenuItem>
             {users.data.role === "admin" && <MenuItem component={Link} to="/admin">Admin</MenuItem>}
           </Menu>)}
           </Typography>
@@ -99,7 +99,7 @@ export default function ButtonAppBar() {
             <Typography variant="h20" component="div" sx={{ mr: 2 }}>
               ({users.data.role})
             </Typography>
-            <Button color="inherit" onClick={handleLogout}>
+            <Button color="inherit" onClick={handleLogout} component={Link} to="/login">
               Logout
             </Button>
             </>
